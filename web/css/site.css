@@ -1,0 +1,72 @@
+html,
+body {
+    height: 100%;
+}
+
+#content-container {
+    min-height: 100%;
+    margin: 0 0 -50px;
+    padding-bottom: 65px;
+}
+
+.image-container {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: middle;
+    float: none;
+    margin: 0 -2px;
+    border: solid 1px #ddd;
+    padding: 15px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.preview-img {
+    display: block;
+    float: none;
+    margin: auto;
+    max-height: 250px;
+    max-width: 100%;
+    width: auto;
+    clear: both;
+}
+
+.image-descr {
+    padding: 5px 15px;
+}
+
+.image-date {
+    float: left;
+    padding: 0 15px;
+    font-size: x-small;
+    color: #aaa;
+}
+
+#gallery-logout {
+    display: block;
+    float: right;
+}
+
+.image-delete-frm {
+    float: right;
+    font-size: x-small;
+    margin-right: 15px;
+}
+
+.internal-container {
+    overflow: hidden;
+}
+
+.footer {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 5px 20px;
+}
+.footer span {
+    vertical-align: middle;
+}
