@@ -11,6 +11,7 @@
                 <li><a href="test/task3" title="Database stored tree display">Task 3</a></li>
                 <li><a href="test/task4" title="Nested sets: select items">Task 4</a></li>
                 <li><a href="test/task5" title="Nested sets: select items2">Task 5</a></li>
+                <li><a href="test/task6" title="1000000 numbers">Task 6</a></li>
             </ul>
         </div>
     </div>

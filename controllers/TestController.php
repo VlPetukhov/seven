@@ -7,6 +7,7 @@
 namespace controllers;
 
 use app\BaseController;
+use models\DigitsProcessor;
 use models\KeyParser;
 use models\TagParser;
 use models\tree\Tree;
@@ -85,6 +86,18 @@ class TestController extends BaseController
             'task5',
             [
                 'data' => $tree->getElementsWithoutDescenders($ancestorsQuantity),
+            ]
+        );
+    }
+
+    public function actionTask6()
+    {
+        $processor = new DigitsProcessor();
+
+        $this->render(
+            'task6',
+            [
+                'data' => $processor->getRepeatableValues(),
             ]
         );
     }
