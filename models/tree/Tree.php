@@ -35,9 +35,8 @@ class Tree extends BaseTreeElement
     }
 
     /**
-     * For purposes of storage trees in DB it's better use "Nested sets", but, unfortunately, the task specify
-     * just simple DB structure and there is no mention if I can change DB structure as I wish, so this is
-     * "dumb"-version of tree storage.
+     * For purposes of storage trees in DB it's better to use "Nested sets". Here will be get all tree, so DB request
+     * does not need nested sets related fields.
      *
      * @return Tree
      */
@@ -63,5 +62,43 @@ class Tree extends BaseTreeElement
         }
 
         return $this;
+    }
+
+    public function getRootElementsWithDescenders($minDescendersQuantity)
+    {
+        $tableName = self::tableName();
+        $diff = 2 * $minDescendersQuantity + 1;
+
+        $sql = "SELECT id, name, parent FROM $tableName
+                WHERE parent IS NULL AND (right_key - left_key) > :diff ORDER BY id";
+
+        $connection = App::instance()->getDB();
+        $stmnt = $connection->prepare($sql);
+        $stmnt->bindValue(':diff', $diff);
+        $stmnt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmnt->execute();
+
+        $dbResult = $stmnt->fetchAll();
+
+        return $dbResult;
+    }
+
+    public function getElementsWithoutDescenders($ancestorsQuantity)
+    {
+        $tableName = self::tableName();
+        $level = $ancestorsQuantity + 1;
+
+        $sql = "SELECT id, name, parent FROM $tableName
+                WHERE level = :level AND (right_key - left_key) = 1 ORDER BY id";
+
+        $connection = App::instance()->getDB();
+        $stmnt = $connection->prepare($sql);
+        $stmnt->bindValue(':level', $level);
+        $stmnt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmnt->execute();
+
+        $dbResult = $stmnt->fetchAll();
+
+        return $dbResult;
     }
 }

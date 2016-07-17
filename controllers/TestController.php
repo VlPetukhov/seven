@@ -62,5 +62,31 @@ class TestController extends BaseController
             ]
         );
     }
+
+    public function actionTask4()
+    {
+        $tree = new Tree();
+        $minDescendersQuantity = 3;
+
+        $this->render(
+            'task4',
+            [
+                'data' => $tree->getRootElementsWithDescenders($minDescendersQuantity),
+            ]
+        );
+    }
+
+    public function actionTask5()
+    {
+        $tree = new Tree();
+        $ancestorsQuantity = 2;
+
+        $this->render(
+            'task5',
+            [
+                'data' => $tree->getElementsWithoutDescenders($ancestorsQuantity),
+            ]
+        );
+    }
 }
 

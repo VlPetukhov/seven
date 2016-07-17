@@ -1,6 +1,6 @@
 <?php
 /**
- * Test 1 View file
+ * Test 3 View file
  *
  * @var string $text
  * @var array $data
