@@ -9,6 +9,7 @@ namespace controllers;
 use app\BaseController;
 use models\KeyParser;
 use models\TagParser;
+use models\tree\Tree;
 
 class TestController extends BaseController
 {
@@ -46,6 +47,18 @@ class TestController extends BaseController
             [
                 'text' => $text,
                 'data' => $parser->getData(),
+            ]
+        );
+    }
+
+    public function actionTask3()
+    {
+        $tree = new Tree();
+
+        $this->render(
+            'task3',
+            [
+                'data' => $tree->getTree()->toArray(),
             ]
         );
     }
