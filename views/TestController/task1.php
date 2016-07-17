@@ -2,6 +2,7 @@
 /**
  * Test 1 View file
  *
+ * @var string $text
  * @var array $datum
  * @var array $descriptions
  */
@@ -9,6 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-2">
+            <a href="/"><-Back</a>
             <h1>Task 1</h1>
             <p>
                 Дан текст с включенными в него тегами следующего вида:<br />

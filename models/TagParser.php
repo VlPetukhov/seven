@@ -6,21 +6,10 @@
 
 namespace models;
 
-class TagParser
+class TagParser extends BaseParser
 {
-    protected $_text;
     protected $_tagsDatum = [];
     protected $_tagsDescriptions = [];
-
-    /**
-     * @param string|null $text
-     */
-    public function __construct($text = null)
-    {
-        if ($text) {
-            $this->load($text);
-        }
-    }
 
     /**
      * Parser
@@ -40,15 +29,6 @@ class TagParser
     }
 
     /**
-     * @param string $text
-     */
-    public function load($text)
-    {
-        $this->_text = $text;
-        $this->parse();
-    }
-
-    /**
      * @return array
      */
     public function getDatum()
@@ -59,6 +39,7 @@ class TagParser
 
         return [];
     }
+
     /**
      * @return array
      */
