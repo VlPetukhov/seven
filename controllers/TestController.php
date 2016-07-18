@@ -7,6 +7,7 @@
 namespace controllers;
 
 use app\BaseController;
+use models\ComboProcessor;
 use models\DigitsProcessor;
 use models\KeyParser;
 use models\TagParser;
@@ -98,6 +99,18 @@ class TestController extends BaseController
             'task6',
             [
                 'data' => $processor->getRepeatableValues(),
+            ]
+        );
+    }
+
+    public function actionTask7()
+    {
+        $processor = new ComboProcessor();
+
+        $this->render(
+            'task7',
+            [
+                'data' => $processor->getResult(),
             ]
         );
     }
