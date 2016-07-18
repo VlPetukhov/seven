@@ -34,15 +34,13 @@ class DigitsProcessor
      */
     public function getRepeatableValues()
     {
-//        $auxArray = new \SplFixedArray(self::MAX_RANGE_VALUE - self::MIN_RANGE_VALUE + 1);
         $auxArray = [];
         $result = new \StdClass();
 
         $startTime = microtime(true);
 
         foreach ($this->array as $value) {
-            $value -= self::MIN_RANGE_VALUE;
-            if ($auxArray[$value] > 0) {
+            if (isset($auxArray[$value]) && $auxArray[$value] > 0) {
                 $auxArray[$value]++;
                 continue;
             }
@@ -56,7 +54,7 @@ class DigitsProcessor
             if ($value < 2) {
                 continue;
             }
-            $resultArray[] = $key + self::MIN_RANGE_VALUE;
+            $resultArray[] = $key;
         }
 
         $executionTime = microtime(true) - $startTime;
