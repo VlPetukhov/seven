@@ -50,7 +50,9 @@
             <h2>Task results</h2>
             <h3>Result array:</h3>
             <pre>
-                <?php var_dump($data); ?>
+                <?php foreach ($data as $line): ?>
+                    <?= implode(', ', $line) . "\n"; ?>
+                <?php endforeach; ?>
             </pre>
         </div>
     </div>
